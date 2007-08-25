@@ -1,8 +1,8 @@
 %define name	libmnetutil
 %define oname	mnetutil
 %define version 0.3.1
-%define cvs	20061210
-%define release %mkrel 0.%cvs.1
+%define svn	3399
+%define release %mkrel %svn.1
 
 %define major	0
 %define libname %mklibname %oname %major
@@ -12,13 +12,14 @@ Summary: 	Netowrking library from MiniSip
 Version: 	%{version}
 Release: 	%{release}
 
-Source:		http://www.minisip.org/source/%{name}-%{version}-%{cvs}.tar.bz2
+Source:		http://www.minisip.org/source/%{name}-%{svn}.tar.bz2
 URL:		http://www.minisip.org/
 License:	GPL
 Group:		System/Libraries
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	libmutil-devel >= 0.3.1-0.20061210.0
-BuildRequires:	libmcrypto-devel >= 0.3.1-0.20061210.0
+BuildRequires:	libmutil-devel >= 0.3.1-3399.0
+BuildRequires:	libldap-devel
+#BuildRequires:	libmcrypto-devel >= 0.3.1-3399.0
 
 %description
 Netowrking library from MiniSip
