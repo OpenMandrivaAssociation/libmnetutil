@@ -1,7 +1,7 @@
 %define name	libmnetutil
 %define oname	mnetutil
 %define version 0.3.1
-%define svn	3565
+%define svn	3591
 %define release %mkrel %svn.1
 
 %define major	0
@@ -9,7 +9,7 @@
 %define develname %mklibname %{oname} -d
 
 Name: 	 	%{name}
-Summary: 	Netowrking library from MiniSip
+Summary: 	Networking library from MiniSip
 Version: 	%{version}
 Release: 	%{release}
 
@@ -18,9 +18,8 @@ URL:		http://www.minisip.org/
 License:	GPL
 Group:		System/Libraries
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	libmutil-devel >= 0.3.1-3565.0
+BuildRequires:	libmutil-devel >= 0.3.1-3591
 BuildRequires:	libldap-devel
-#BuildRequires:	libmcrypto-devel >= 0.3.1-3399.0
 
 %description
 Netowrking library from MiniSip
@@ -38,6 +37,7 @@ Summary: 	Header files and static libraries from %name
 Group: 		Development/C
 Requires: 	%{libname} >= %{version}
 Provides: 	%{name}-devel = %{version}-%{release}
+Obsoletes: 	%{_lib}%{oname}0-devel
 
 %description -n %{develname}
 Libraries and includes files for developing programs based on %name.
@@ -46,7 +46,7 @@ Libraries and includes files for developing programs based on %name.
 %setup -q -n %name
 
 %build
-./bootstrap
+./bootstrap 
 %configure2_5x
 %make
 										
@@ -66,8 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %{libname}
 %defattr(-,root,root)
-%{_libdir}/*.so.%{major}
-%{_libdir}/*.so.%{major}.*
+%{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
 %defattr(-,root,root)
